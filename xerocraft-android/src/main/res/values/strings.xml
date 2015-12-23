@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Xerocraft</string>
+    <string name="logo_desc">Xerocraft logo</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+
+	<!-- MainActivity fragments -->
+	<string name="member_info">Member Info</string>
+	<string name="permit_info">Permit Info</string>
+	<string name="inventory">Inventory</string>
+	<string name="check_in">Check In</string>
+	<string name="check_out">Check Out</string>
+
+	<!-- Various dialogs -->
+    <string name="title_no_scanner">Missing scanner app</string>
+    <string name="message_no_scanner">No compatible scanner app was found.  Get the recommended one from the Play Store now?</string>
+    <string name="title_no_user">Missing configuration</string>
+    <string name="message_no_user">Please scan your own membership card to configure the app.</string>
+    <string name="message_inactive_user">Your Xerocraft member ID is inactive.</string>
+    <string name="set_user_id">Change my member ID</string>
+    <string name="message_not_member_qr">QR code is not a member ID.</string>
+    <string name="message_not_permit_qr">QR code is not a parking permit.</string>
+    <string name="title_error">Error</string>
+    <string name="message_updating_user">Updating user info&#8230;</string>
+    <string name="message_getting_member_info">Getting member info&#8230;</string>
+	<string name="message_getting_permit_info">Getting permit info&#8230;</string>
+    <string name="message_updating_inventory">Updating inventory&#8230;</string>
+    <string name="server_error">The server returned an error: {ERROR}</string>
+
+    <!-- TtsService -->
+    <string name="tts_service">Xerocraft Inventory Mode</string>
+    <string name="utterance_scan_location">Scan a location before scanning permits.</string>
+    <string name="utterance_location">Location {LOCATION}</string>
+    <string name="utterance_not_inventory_qr">Not a location or permit.</string>
+
+	<!-- MemberInfoActivity -->
+	<string name="name">Name</string>
+	<string name="user_name">Login</string>
+	<string name="email">Email</string>
+	<string name="status">Status</string>
+	<string name="active">Active</string>
+	<string name="inactive">Inactive</string>
+	<string name="tags">Tags</string>
+
+	<!-- PermitInfoActivity -->
+	<string name="permit_no">Permit &#8470;</string>
+	<string name="created">Created</string>
+	<string name="desc">Description</string>
+	<string name="owner">Owner</string>
+	<string name="in_inventoried_space">In inventoried space?</string>
+	<string name="ok_to_move">OK to move?</string>
+
+</resources>

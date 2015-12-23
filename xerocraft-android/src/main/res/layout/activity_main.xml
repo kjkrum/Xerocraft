@@ -1,0 +1,49 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="${relativePackage}.${activityClass}"
+    android:orientation="vertical"
+    android:background="#000"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp" >
+
+	<ImageView
+	    android:id="@+id/logo"
+	    android:layout_width="150dp"
+	    android:layout_height="150dp"
+	    android:src="@drawable/xerocraft"
+	    android:contentDescription="@string/logo_desc" />
+
+	<fragment
+		android:name="org.xerocraft.memberapp.MemberInfoFragment"
+		android:id="@+id/member_info_fragment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:layout="@layout/fragment_button"/>
+
+	<fragment
+		android:name="org.xerocraft.memberapp.PermitInfoFragment"
+		android:id="@+id/permit_info_fragment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:layout="@layout/fragment_button"/>
+
+	<fragment
+		android:name="org.xerocraft.memberapp.InventoryFragment"
+		android:id="@+id/inventory_fragment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:layout="@layout/fragment_button"/>
+
+	<fragment
+		android:name="org.xerocraft.memberapp.CheckInOutFragment"
+		android:id="@+id/check_in_out_fragment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:layout="@layout/fragment_button"/>
+
+</LinearLayout>
