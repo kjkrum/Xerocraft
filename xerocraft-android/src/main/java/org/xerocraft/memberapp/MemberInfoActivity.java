@@ -2,7 +2,7 @@ package org.xerocraft.memberapp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import org.apache.commons.lang3.StringUtils;
+import android.text.TextUtils;
 
 /**
  * Displays a {@link Member}.
@@ -27,6 +27,6 @@ public class MemberInfoActivity extends DataActivity {
 		addDataItem(R.string.user_name, member.getUserName());
 		addDataItem(R.string.email, member.getEmail());
 		addDataItem(R.string.status, member.isActive() ? R.string.active : R.string.inactive);
-		addDataItem(R.string.tags, StringUtils.join(member.getTags(), ", "));
+		addDataItem(R.string.tags, TextUtils.join(", ", member.getTags()));
 	}
 }

@@ -37,7 +37,6 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'org.apache.commons:commons-lang3:3.4'
     // simple-event-bus needs to be installed in your local maven repo
     // until I declare it version 1.0 and submit it to central
     // https://github.com/kjkrum/simple-event-bus
