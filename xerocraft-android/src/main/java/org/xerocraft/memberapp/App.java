@@ -13,16 +13,15 @@ import org.xerocraft.memberapp.dagger.Injector;
 public class App extends Application {
 	private Injector mInjector;
 
-	public Injector getInjector() {
-		if(mInjector == null) {
-			mInjector = DaggerInjector.builder()
-					.appModule(new AppModule(this))
-					.build();
-		}
-		return mInjector;
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		mInjector = DaggerInjector.builder()
+				.appModule(new AppModule(this))
+				.build();
 	}
 
-	public void resetInjector() {
-		mInjector = null;
+	public Injector getInjector() {
+		return mInjector;
 	}
 }

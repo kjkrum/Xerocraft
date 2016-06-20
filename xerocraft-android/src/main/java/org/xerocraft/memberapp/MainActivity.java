@@ -5,6 +5,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
+import com.chalcodes.event.StickyEventBus;
+
+import javax.inject.Inject;
 
 /* The bogus lint error that sometimes pops up is caused by a bug in the
  * Android SDK.  Cleaning the project should clear it.
@@ -14,11 +17,14 @@ import android.view.ViewGroup;
 
 public class MainActivity extends AppCompatActivity {
 //	private static final String TAG = MainActivity.class.getSimpleName();
+	@Inject	StickyEventBus<Member> mUserBus;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		((App) getApplication()).getInjector().inject(this);
 
 		FragmentUtil.addFragment(this, UserFragment.class, null);
 
@@ -33,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		((App) getApplication()).resetInjector();
+		mUserBus.clearSticky();
 		super.onBackPressed();
 	}
 }

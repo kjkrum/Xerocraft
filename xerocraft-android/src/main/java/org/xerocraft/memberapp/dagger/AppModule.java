@@ -1,8 +1,6 @@
 package org.xerocraft.memberapp.dagger;
 
 import android.content.Context;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.chalcodes.event.EventBus;
 import com.chalcodes.event.SimpleEventBus;
 import com.chalcodes.event.StickyEventBus;
@@ -49,8 +47,16 @@ public class AppModule {
 	}
 
 	@Provides @Singleton
-	EventBus<Member> provideUserBus(final Executor executor, final EventBus<Exception> exceptionBus) {
+	StickyEventBus<Member> provideStickyUserBus(final Executor executor, final EventBus<Exception> exceptionBus) {
 		return new StickyEventBus<>(executor, exceptionBus, false);
+	}
+
+	/* Dagger won't automatically inject a StickyEventBus<T> into an
+	 * EventBus<T> field, even if StickyEventBus<T> is the only kind of
+	 * EventBus<T> it knows how to provide. */
+	@Provides @Singleton
+	EventBus<Member> provideUserBus(final StickyEventBus<Member> bus) {
+		return bus;
 	}
 
 	@Provides @Singleton
