@@ -1,10 +1,12 @@
 package org.xerocraft.memberapp.dagger;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.NonNull;
 import com.chalcodes.event.EventBus;
 import com.chalcodes.event.SimpleEventBus;
 import com.chalcodes.event.StickyEventBus;
-import com.chalcodes.event.exec.AndroidExecutor;
 import dagger.Module;
 import dagger.Provides;
 import org.xerocraft.memberapp.Member;
@@ -38,17 +40,23 @@ public class AppModule {
 
 	@Provides @Singleton
 	Executor provideExecutor() {
-		return new AndroidExecutor();
+		return new Executor() {
+			private final Handler mHandler = new Handler(Looper.getMainLooper());
+			@Override
+			public void execute(@NonNull final Runnable command) {
+				mHandler.post(command);
+			}
+		};
 	}
 
 	@Provides @Singleton
 	EventBus<Exception> provideExceptionBus(final Executor executor) {
-		return new SimpleEventBus<>(executor, null, false);
+		return new SimpleEventBus<>(executor, null);
 	}
 
 	@Provides @Singleton
 	StickyEventBus<Member> provideStickyUserBus(final Executor executor, final EventBus<Exception> exceptionBus) {
-		return new StickyEventBus<>(executor, exceptionBus, false);
+		return new StickyEventBus<>(executor, exceptionBus);
 	}
 
 	/* Dagger won't automatically inject a StickyEventBus<T> into an
